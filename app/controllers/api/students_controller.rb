@@ -1,7 +1,7 @@
 class Api::StudentsController < ApplicationController
 
   def index
-    students = Student.All
+    students = Student.all
     render json: students
   end
 

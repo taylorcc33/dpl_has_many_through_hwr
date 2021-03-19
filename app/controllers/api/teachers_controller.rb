@@ -2,7 +2,7 @@ class Api::TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :destroy]
 
   def index
-    teachers = Teacher.All 
+    teachers = Teacher.all 
     render json: teachers
   end
 
