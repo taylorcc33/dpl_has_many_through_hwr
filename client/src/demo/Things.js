@@ -15,7 +15,7 @@ export default () => {
 
   return (
     <>
-      <Header>Things</Header>
+      <Header>Thingsss</Header>
       {things.map((t) => (
         <div key={t.id}>{t.name}</div>
       ))}

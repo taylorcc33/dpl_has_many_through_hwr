@@ -1,21 +1,24 @@
 import Axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "semantic-ui-react";
+import Teachers from "./Teachers";
 
 const Home = () => {
-  const [appointments, setAppointments] = useState([]);
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
+  const [appointments, setAppointments] = useState([]);
+  // const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    getAppointments();
+    // getAppointments();
     getTeachers();
     getStudents();
   }, []);
 
-  const getAppointments = async () => {
+  const getAppointments = async (id) => {
+    // setToggle(!toggle);
     try {
-      let res = await Axios.get("/api/appointments");
+      let res = await Axios.get(`/api/teachers/${id}/appointments`);
       setAppointments(res.data);
       console.log(res.data);
     } catch (err) {
@@ -43,11 +46,23 @@ const Home = () => {
     }
   };
 
-  return (
-    <>
-      <h1>1-on-1 Appointments</h1>
-    </>
-  );
+  const renderTeachers = () => {
+    return (
+      <>
+        <h1>DPL 1-on-1 Appointments</h1>
+        <Teachers
+          teachers={teachers}
+          getAppointments={getAppointments}
+          all_appointments={appointments}
+        />
+      </>
+    );
+  };
+
+  return <>{renderTeachers()}</>;
 };
 
 export default Home;
+
+
+

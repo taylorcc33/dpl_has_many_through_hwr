@@ -1,5 +1,5 @@
 class Api::TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :destroy]
+  before_action :set_teacher, only: [:show, :teacher_appointments, :destroy]
 
   def index
     teachers = Teacher.all 
@@ -9,6 +9,10 @@ class Api::TeachersController < ApplicationController
   def show
     render json: @teacher
   end
+
+  # def teacher_appointments
+  #   render json: {appointments: @teacher.get_appts}
+  # end
 
   def create
     @teacher = Teacher.new(teacher_params)
