@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: react_rails_starter_w20_development
+  database: has_many_through_hw
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: react_rails_starter_w20_test
+  database: has_many_through_hw_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: react_rails_starter_w20_production
-  username: react_rails_starter_w20
-  password: <%= ENV['REACT_RAILS_STARTER_W20_DATABASE_PASSWORD'] %>
+  database: has_many_through_hw_production
+  username: has_many_through_hw
+  password: <%= ENV['HAS_MANY_THROUGH_HW_DATABASE_PASSWORD'] %>
