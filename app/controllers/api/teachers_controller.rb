@@ -10,9 +10,9 @@ class Api::TeachersController < ApplicationController
     render json: @teacher
   end
 
-  # def teacher_appointments
-  #   render json: {appointments: @teacher.get_appts}
-  # end
+  def teacher_appointments
+    render json: {appointments: @teacher.get_appts}
+  end
 
   def create
     @teacher = Teacher.new(teacher_params)
