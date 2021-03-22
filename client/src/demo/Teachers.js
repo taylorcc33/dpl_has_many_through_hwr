@@ -23,6 +23,7 @@ const Teachers = ({
             />
           </span>
           <br />
+          <br />
         </>
       );
     });
