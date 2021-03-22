@@ -10,5 +10,4 @@ Rails.application.routes.draw do
     get "teacher/:id/appointments", to: "teachers#teacher_appointments"
   end
 
-  
 end
