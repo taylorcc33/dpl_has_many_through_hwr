@@ -1,35 +1,25 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Teacher = ({ teacher }) => {
+const Teacher = ({ teacher, all_appointments }) => {
   const [toggle, setToggle] = useState(false);
-  const [appointments, setAppointments] = useState([]);
-
-  useEffect(() => {
-    getAppointments();
-  }, []);
-
-  const getAppointments = async () => {
-    try {
-      let res = await Axios.get(`/api/teacher/${teacher.id}/appointments`);
-      setAppointments(res.data);
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const renderAppointments = () => {
     if (toggle === true) {
-      return appointments.map((appointment) => {
-        <p>{appointment.date}</p>;
+      return all_appointments.map((appointment) => {
+        return (
+          <p>
+            {appointment.date}: {appointment.students.first_name}{" "}
+            {appointment.students.last_name}
+          </p>
+        );
       });
     }
   };
 
   return (
     <>
-      <h2 onClick={setToggle(!toggle)}>
+      <h2 onClick={() => setToggle(!toggle)}>
         {teacher.first_name} {teacher.last_name}
       </h2>
       {renderAppointments()}

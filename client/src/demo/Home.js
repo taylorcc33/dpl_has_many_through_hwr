@@ -18,9 +18,9 @@ const Home = () => {
   const getAppointments = async (id) => {
     // setToggle(!toggle);
     try {
-      let res = await Axios.get(`/api/teachers/${id}/appointments`);
-      setAppointments(res.data);
-      console.log(res.data);
+      let res = await Axios.get(`/api/teacher/${id}/appointments`);
+      setAppointments(res.data.appointments);
+      console.log("Appointments", res.data.appointments);
     } catch (err) {
       console.log(err);
     }
@@ -30,7 +30,7 @@ const Home = () => {
     try {
       let res = await Axios.get("/api/teachers");
       setTeachers(res.data);
-      console.log(res.data);
+      console.log("Teachers", res.data);
     } catch (err) {
       console.log(err);
     }
@@ -40,7 +40,7 @@ const Home = () => {
     try {
       let res = await Axios.get("/api/students");
       setStudents(res.data);
-      console.log(res.data);
+      console.log("Students", res.data);
     } catch (err) {
       console.log(err);
     }
@@ -63,6 +63,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-

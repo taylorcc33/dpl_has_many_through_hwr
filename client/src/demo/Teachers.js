@@ -6,31 +6,18 @@ const Teachers = ({ teachers, getAppointments, all_appointments }) => {
   const [toggle, setToggle] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
-  // useEffect(() => {
-  //   getAppointments();
-  // }, []);
-
-  // const getAppointments = async (id) => {
-  //   setToggle(!toggle);
-  //   try {
-  //     let res = await Axios.get(`/api/teachers/${id}/appointments`);
-  //     setAppointments(res.data);
-  //     console.log(res.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   const renderAppointments = () => {
+    console.log("renderAppointments triggered");
     if (toggle === true) {
+      console.log("toggle is true");
       return all_appointments.map((appointment) => {
-        <p>{appointment.date}</p>;
+        return <p>{appointment.date}</p>;
       });
     }
   };
 
   const toggler = (id) => {
-    setToggle(!toggle);
+    // setToggle(!toggle);
     getAppointments(id);
   };
 
@@ -38,11 +25,13 @@ const Teachers = ({ teachers, getAppointments, all_appointments }) => {
     return teachers.map((teacher) => {
       return (
         <>
-          <div onClick={() => toggler(teacher.id)}>
-            <h2>
-              {teacher.first_name} {teacher.last_name}
-            </h2>
-          </div>
+          <Teacher
+            onClick={() => toggler(teacher.id)}
+            key={teacher.id}
+            teacher={teacher}
+            all_appointments={all_appointments}
+          />
+
           {renderAppointments()}
         </>
       );
