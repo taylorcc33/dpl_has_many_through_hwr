@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "semantic-ui-react";
 
 const Teacher = ({ teacher, all_appointments, setAppointments }) => {
