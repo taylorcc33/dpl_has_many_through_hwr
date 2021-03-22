@@ -6,16 +6,13 @@ const Home = () => {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
   const [appointments, setAppointments] = useState([]);
-  // const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    // getAppointments();
     getTeachers();
     getStudents();
   }, []);
 
   const getAppointments = async (id) => {
-    // setToggle(!toggle);
     try {
       let res = await Axios.get(`/api/teacher/${id}/appointments`);
       setAppointments(res.data.appointments);
