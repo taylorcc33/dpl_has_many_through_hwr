@@ -22,6 +22,7 @@ const Teachers = ({
               setAppointments={setAppointments}
             />
           </span>
+          <br />
         </>
       );
     });
