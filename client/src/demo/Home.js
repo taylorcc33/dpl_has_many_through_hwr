@@ -54,6 +54,7 @@ const Home = () => {
           teachers={teachers}
           getAppointments={getAppointments}
           all_appointments={appointments}
+          setAppointments={setAppointments}
         />
       </>
     );

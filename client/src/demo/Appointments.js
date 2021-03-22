@@ -18,6 +18,15 @@ const Appointments = () => {
     }
   };
 
+  const deleteAppointment = async () => {
+    try {
+      let res = await Axios.delete(`/api/appointments/${id}`)
+      console.log("deleted", res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const renderAppointments = () => {
     return appointments.map((app) => {
       return (

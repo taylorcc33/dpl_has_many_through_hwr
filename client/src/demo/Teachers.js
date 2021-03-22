@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Teacher from "./Teacher";
 
-const Teachers = ({ teachers, getAppointments, all_appointments }) => {
-  const [appointments, setAppointments] = useState([]);
-
-  // const renderAppointments = () => {
-  //   console.log("renderAppointments triggered");
-  //   if (toggle === true) {
-  //     console.log("toggle is true");
-  //     return all_appointments.map((appointment) => {
-  //       return <p>{appointment.date}</p>;
-  //     });
-  //   }
-  // };
-
+const Teachers = ({
+  teachers,
+  getAppointments,
+  all_appointments,
+  setAppointments,
+}) => {
   const toggler = (id) => {
     getAppointments(id);
   };
@@ -27,10 +20,9 @@ const Teachers = ({ teachers, getAppointments, all_appointments }) => {
               key={teacher.id}
               teacher={teacher}
               all_appointments={all_appointments}
+              setAppointments={setAppointments}
             />
           </span>
-
-          {/* {renderAppointments()} */}
         </>
       );
     });
