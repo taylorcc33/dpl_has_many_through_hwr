@@ -25,12 +25,13 @@ const Teachers = ({ teachers, getAppointments, all_appointments }) => {
     return teachers.map((teacher) => {
       return (
         <>
-          <Teacher
-            onClick={() => toggler(teacher.id)}
-            key={teacher.id}
-            teacher={teacher}
-            all_appointments={all_appointments}
-          />
+          <span onClick={() => toggler(teacher.id)}>
+            <Teacher
+              key={teacher.id}
+              teacher={teacher}
+              all_appointments={all_appointments}
+            />
+          </span>
 
           {renderAppointments()}
         </>
