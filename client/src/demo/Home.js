@@ -1,6 +1,5 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Header } from "semantic-ui-react";
 import Teachers from "./Teachers";
 
 const Home = () => {
